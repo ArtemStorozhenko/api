@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface UsersRepository extends JpaRepository<User, Long> {
 
     @Query(value = "select * from users where user_id = ?1", nativeQuery = true)
-    User getByUUID(UUID uuid);
+    User findByUUID(UUID uuid);
 
     @Modifying
     @Query(value = "update users set name = ?2, created_on  = ?3, modified_on = ?4 " +

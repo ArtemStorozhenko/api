@@ -14,12 +14,12 @@ public class UsersServiceImpl implements UsersService{
     @Autowired
     private UsersRepository repository;
 
-    public List<User> getAll() {
+    public List<User> findAll() {
         return repository.findAll();
     }
 
-    public User getByUUID(UUID id) {
-        return repository.getByUUID(id);
+    public User findByUUID(UUID id) {
+        return repository.findByUUID(id);
     }
 
     public void save(User user){
@@ -27,7 +27,7 @@ public class UsersServiceImpl implements UsersService{
     }
 
     public void update(User user) {
-        User foundUser = repository.getByUUID(user.getId());
+        User foundUser = repository.findByUUID(user.getId());
         if (foundUser != null) {
             repository.save(user);
         }
@@ -35,7 +35,7 @@ public class UsersServiceImpl implements UsersService{
 
     public void deleteByUUID(UUID uuid) {
 
-        User user = repository.getByUUID(uuid);
+        User user = repository.findByUUID(uuid);
         if (user != null) {
             repository.delete(user);
         }

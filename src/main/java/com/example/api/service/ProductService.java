@@ -9,5 +9,5 @@ public interface ProductService {
 
     List<Product> getByUserId(UUID uuid);
 
-    List<Product> getAll();
+    List<Product> findAll();
 }

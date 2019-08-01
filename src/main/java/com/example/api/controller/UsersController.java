@@ -16,13 +16,13 @@ public class UsersController {
     private UsersService service;
 
     @GetMapping(value = "/get")
-    public List<User> getAll() {
-        return service.getAll();
+    public List<User> findAll() {
+        return service.findAll();
     }
 
     @GetMapping("get/{id}")
     public User getById(@PathVariable(value = "id") UUID id) {
-        return service.getByUUID(id);
+        return service.findByUUID(id);
     }
 
     @PostMapping("/save")
@@ -40,7 +40,7 @@ public class UsersController {
         service.save(user);
     }
 
-    @GetMapping("/delete/{uuid}")
+    @DeleteMapping("/delete/{uuid}")
     public void delete(@PathVariable(value = "uuid") UUID uuid) {
         service.deleteByUUID(uuid);
     }
